@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" /> -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link rel="stylesheet" href="./css/index.css" />
+
+</head>
+
+<body>
+
+  <div class="login-box">
+
+    <div class="top">
+      <div class="cadastro">
+        <p>Criar Usuario</p>
+      </div>
+
+      <div class="login">
+        <p>Login</p>
+      </div>
+    </div>
+
+    <div class="botton">
+      <div class="login-form">
+        <h1>Conete-se</h1>
+
+        <form action="">
+
+          <div class="email-div">
+            <input type="text" name="email" id="login-email" placeholder="Digite seu Email">
+          </div>
+
+          <div class="senha-div">
+            <input type="password" name="senha" id="login-senha" placeholder="Digite sua Senha">
+          </div>
+
+          <button type="submit" id="btn-login">CONETAR</button>
+
+        </form>
+      </div>
+
+      <div class="cadastro-form">
+        <h1>Cadastre-se Gratuitamente</h1>
+
+        <form action="">
+          <div class="nome-sobrenome">
+            <div class="nome-div">
+              <input type="text" name="nome" id="nome" placeholder="Primeiro Nome *">
+              <span id="nome-span"></span>
+            </div>
+
+            <div class="sobrenome-div">
+              <input type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome *">
+              <span id="sobrenome-span"></span>
+            </div>
+          </div>
+
+          <div class="email-div">
+            <input type="email" name="email" id="cadastro-email" placeholder="Endereço de Email *">
+              <span id="cadastro-email-span"></span>
+            </div>
+
+          <div class="senha-div">
+            <input type="password" name="senha" id="cadastro-senha" placeholder="Digite sua Senha *">
+              <span id="cadastro-senha-span"></span>
+            </div>
+
+          <button type="submit" id="btn-cadastro">CADASTRAR</button>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/index.js"></script>
+</body>
+
+</html>

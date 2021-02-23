@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: inline;
+    font-family: 'Rubik', sans-serif;
+    background-color: rgb(193, 189, 186);
+    color: rgb(195, 195, 195);
+    height: 600px;
+    width: 800px;
+}
+
+.login-box {
+    background-color: rgb(36, 50, 61);
+    height: 500px;
+    width: 450px;
+    margin-top: 50px;
+    margin-left: 175px;
+}
+
+.top {
+    display: flex;
+    width: 450px;
+    height: 120px;
+}
+
+.botton {
+    position: relative;
+    display: flex;
+    width: 450px;
+    height: 380px;
+}
+
+.cadastro {
+    background-color: rgb(26, 177, 136);
+    height: 50px;
+    width: 175px;
+    margin-top: 50px;
+    box-shadow: 0 0 0.1em black;
+    margin-left: 50px;
+    cursor: pointer;
+}
+
+
+.cadastro p {
+    line-height: 50px;
+    text-align: center;
+    color: rgb(195, 195, 195);
+    font-size: 14px;
+
+}
+
+.cadastro-form {
+    display: inline;
+    width: 350px;
+    height: 312px;
+    margin-left: 50px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.nome-sobrenome {
+    display: flex;
+}
+
+.cadastro-form h1 {
+    width: 320px;
+    font-size: 24px;
+    height: 32px;
+    margin: 0;
+    padding: 0;
+    margin-left: 15px;
+}
+
+.cadastro-form .nome-div {
+    margin-top: 38px;
+    width: 163px;
+    height: 28px;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid rgb(195, 195, 195);
+}
+
+.cadastro-form .nome-div input {
+    margin-left: 10px;
+    background-color: rgba(0, 0, 0, 0);
+    width: 153px;
+    border: none;
+    height: 28px;
+    color: white;
+}
+
+.cadastro-form .sobrenome-div {
+    width: 163px;
+    height: 28px;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid rgb(195, 195, 195);
+    margin: 0;
+    margin-top: 38px;
+    margin-left: 20px;
+}
+
+.cadastro-form .sobrenome-div input {
+    margin-left: 10px;
+    background-color: rgba(0, 0, 0, 0);
+    width: 153px;
+    border: none;
+    height: 28px;
+    color: white;
+}
+
+.cadastro-form .email-div {
+    margin-top: 30px;
+    width: 348px;
+    height: 28px;
+    border: 1px solid rgb(195, 195, 195);
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.cadastro-form .email-div input {
+    background-color: rgba(0, 0, 0, 0);
+    margin-left: 10px;
+    height: 28px;
+    border: none;
+    color: white;
+    width: 348px;
+}
+
+.cadastro-form .senha-div {
+    margin-top: 30px;
+    width: 348px;
+    height: 28px;
+    border: 1px solid rgb(195, 195, 195);
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.cadastro-form .senha-div input {
+    background-color: rgba(0, 0, 0, 0);
+    margin-left: 10px;
+    height: 28px;
+    border: none;
+    width: 348px;
+    color: white;
+}
+
+.cadastro-form #btn-cadastro {
+    margin-top: 30px;
+    height: 60px;
+    width: 350px;
+    background-color: rgb(26, 177, 136);
+    color: white;
+    font-size: 26px;
+    text-align: center;
+    border: none;
+    box-shadow: 0 0 0.2em black;
+}
+
+.cadastro-form input {
+    outline: none;
+}
+
+input::placeholder {
+    color: rgb(195, 195, 195);
+    font-size: 16px;
+}
+
+.login {
+    display: block;
+    background-color: rgb(67, 81, 90);
+    height: 50px;
+    width: 175px;
+    box-shadow: 0 0 0.1em black;
+    margin-top: 50px;
+    cursor: pointer;
+}
+
+.login p {
+    line-height: 50px;
+    color: rgb(195, 195, 195);
+    text-align: center;
+    font-size: 14px;
+}
+
+.login-form {
+    display: inline;
+    width: 350px;
+    height: 312px;
+    margin-left: 50px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.login-form h1 {
+    width: 320px;
+    font-size: 24px;
+    height: 32px;
+    margin: 0;
+    padding: 0;
+}
+
+.login-form .email-div {
+    margin-top: 38px;
+    width: 348px;
+    height: 28px;
+    border: 1px solid rgb(195, 195, 195);
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.login-form .email-div input {
+    background-color: rgba(0, 0, 0, 0);
+    margin-left: 10px;
+    height: 28px;
+    border: none;
+    color: white;
+    width: 348px;
+
+}
+
+.login-form .senha-div {
+    margin-top: 30px;
+    width: 348px;
+    height: 28px;
+    border: 1px solid rgb(195, 195, 195);
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.login-form .senha-div input {
+    background-color: rgba(0, 0, 0, 0);
+    margin-left: 10px;
+    height: 28px;
+    border: none;
+    color: white;
+    width: 348px;
+
+}
+
+.login-form input {
+    outline: none;
+}
+
+.login-form #btn-login {
+    margin-top: 90px;
+    height: 60px;
+    width: 350px;
+    background-color: rgb(26, 177, 136);
+    color: white;
+    font-size: 26px;
+    text-align: center;
+    border: none;
+    box-shadow: 0 0 0.2em black;
+}
+button {
+    outline: none;
+    cursor: pointer;
+}
+
+span {
+    margin-top: 2px;
+    display: none;
+    color: red;
+    font-size: 12px;
+}

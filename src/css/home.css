@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    width: 800px;
+    height: 600px;
+}
+
+body {
+    /* background-color: #2e3851; */
+    background-color: rgb(193, 189, 186);
+    color: rgb(199, 199, 199);
+    font-family: 'Rubik', sans-serif;
+}
+
+.container {
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    grid-template-columns: 100px 700px;
+}
+
+.left {
+    display: grid;
+    grid-auto-rows: 80px;
+    /* background-color: #2a2d33; */
+    background-color: rgb(36, 50, 61);
+
+}
+
+.left .menuIcon {
+    color: black;
+    font-size: 50px;
+    margin-left: 25px;
+    color: rgb(160, 160, 160);
+    margin-top: 15px;
+}
+
+.left .menu {
+    width: 100px;
+    height: 80px;
+    cursor: pointer;
+}
+
+.left .homeIcon {
+    color: black;
+    font-size: 45px;
+    margin-left: 25px;
+    color: rgb(160, 160, 160);
+    margin-top: 15px;
+}
+
+.left .home {
+    width: 100px;
+    height: 80px;
+    cursor: pointer;
+}
+
+.left .configIcon {
+    color: black;
+    font-size: 50px;
+    margin-left: 25px;
+    color: rgb(160, 160, 160);
+    margin-top: 15px;
+}
+
+.left .config {
+    width: 100px;
+    height: 80px;
+    cursor: pointer;
+}
+
+.left .historyIcon {
+    color: black;
+    font-size: 50px;
+    margin-left: 25px;
+    color: rgb(160, 160, 160);
+    margin-top: 15px;
+}
+
+.left .history {
+    width: 100px;
+    height: 80px;
+    cursor: pointer;
+}
+
+.left .graficoIcon {
+    color: black;
+    font-size: 50px;
+    margin-left: 25px;
+    color: rgb(160, 160, 160);
+    margin-top: 15px;
+}
+
+.left .grafico {
+    width: 100px;
+    height: 80px;
+    cursor: pointer;
+}
+
+.left .empty {
+    width: 100px;
+    height: 80px;
+}
+
+.right {
+    /* background-color: red; */
+}
+
+.right .home {
+    display: grid;
+    width: 700px;
+    height: 600px;
+}
