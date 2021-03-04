@@ -13,8 +13,7 @@ function createUser(email, senha, nome, sobrenome) {
             let uid = user.uid;
 
             cadastra(db, nome, sobrenome, email, uid);
-        });
-        
+        });     
 }
 
 module.exports = {

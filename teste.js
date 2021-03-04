@@ -1,37 +1,38 @@
+require("dotenv").config();
 const crypto = require("crypto");
 
-require('dotenv').config({path: __dirname + '/.env'})
-const ENCRYPTION_KEY = process.env.ENCRYPTION_KEY; // Must be 256 bits (32 characters)
-const IV_LENGTH = 16; // For AES, this is always 16
+const DADOS_CRIPTPGRAFAR = {
+    algoritimo: "aes-128-cbc",
+    codificacao: "utf8",
+    tipo: "hex",
+};
 
-function encrypt(text) {
-    let iv = crypto.randomBytes(IV_LENGTH);
-    let cipher = crypto.createCipheriv(
-        "aes-256-cbc",
-        Buffer.from(ENCRYPTION_KEY),
-        iv
+function criptografar(senha) {
+    let cipher = crypto.createCipher(
+        DADOS_CRIPTPGRAFAR.algoritimo,
+        process.env.ENCRYPTION_KEY
     );
-    let encrypted = cipher.update(text);
 
-    encrypted = Buffer.concat([encrypted, cipher.final()]);
-
-    return iv.toString("hex") + ":" + encrypted.toString("hex");
+    cipher.update(senha);
+    return cipher.final(DADOS_CRIPTPGRAFAR.tipo);
 }
 
-function decrypt(text) {
-    let textParts = text.split(":");
-    let iv = Buffer.from(textParts.shift(), "hex");
-    let encryptedText = Buffer.from(textParts.join(":"), "hex");
-    let decipher = crypto.createDecipheriv(
-        "aes-256-cbc",
-        Buffer.from(ENCRYPTION_KEY),
-        iv
+function descriptografar(senha) {
+    let decipher = crypto.createDecipher(
+        DADOS_CRIPTPGRAFAR.algoritimo,
+        process.env.ENCRYPTION_KEY
     );
-    let decrypted = decipher.update(encryptedText);
-
-    decrypted = Buffer.concat([decrypted, decipher.final()]);
-
-    return decrypted.toString();
+    decipher.update(senha, DADOS_CRIPTPGRAFAR.tipo);
+    return decipher.final(DADOS_CRIPTPGRAFAR.codificacao);
 }
 
-module.exports = { decrypt, encrypt };
+let cript = criptografar("senha123");
+
+console.log(cript);
+
+let des = descriptografar(cript);
+
+console.log(des);
+
+
+console.log("Hello world!");

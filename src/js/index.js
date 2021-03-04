@@ -1,4 +1,12 @@
 window.onload = () => {
+    InicializeApp();
+    verificaLogin("index", "home");
+
+    let loginBox = document.querySelector(".login-box");
+    let loader = document.querySelector(".load");
+    loader.style.display = "none";
+    loginBox.style.display = "block";
+
     let cadastroButton = document.querySelector(".cadastro");
     let loginButton = document.querySelector(".login");
 
@@ -20,66 +28,13 @@ window.onload = () => {
     let btnCadastro = document.querySelector("#btn-cadastro");
     btnCadastro.addEventListener("click", (event) => {
         event.preventDefault();
+        alert("Cadastrando")
         cadastra();
     });
+
+    let btnLogin = document.querySelector("#btn-login");
+    btnLogin.addEventListener("click", (event) => {
+        event.preventDefault();
+        login();
+    });
 };
-
-function cadastra() {
-
-    let confirmNome = false
-    let confirmSobrenome = false
-    let confirmEmail = false
-    let confirmSenha = false
-    
-    let email = document.querySelector("#cadastro-email").value;
-    let senha = document.querySelector("#cadastro-senha").value;
-    let nome = document.querySelector("#nome").value;
-    let sobrenome = document.querySelector("#sobrenome").value;
-
-    if (nome == "") {
-        document.querySelector("#nome-span").textContent = "Campo Obrigatorio";
-        document.querySelector("#nome-span").style.display = "block";
-    } else {
-        document.querySelector("#nome-span").style.display = "none";
-        confirmNome = true
-    }
-
-    if (sobrenome == "") {
-        document.querySelector("#sobrenome-span").textContent =
-            "Campo Obrigatorio";
-        document.querySelector("#sobrenome-span").style.display = "block";
-    } else {
-        document.querySelector("#sobrenome-span").style.display = "none";
-        confirmSobrenome = true
-    }
-
-    if (email == "") {
-        document.querySelector("#cadastro-email-span").textContent =
-            "Campo Obrigatorio";
-        document.querySelector("#cadastro-email-span").style.display = "block";
-    } else {
-        document.querySelector("#cadastro-email-span").style.display = "none";
-        confirmEmail = true
-    }
-
-    if (senha == "") {
-        document.querySelector("#cadastro-senha-span").textContent =
-            "Campo Obrigatorio";
-        document.querySelector("#cadastro-senha-span").style.display = "block";
-    } else {
-        document.querySelector("#cadastro-senha-span").style.display = "none";
-        confirmSenha = true
-    }
-
-    if (confirmNome && confirmSobrenome &&  confirmEmail && confirmSenha) {
-        let ipc = require("electron").ipcRenderer;
-
-        ipc.once("actionReply", function (event, response) {
-            processResponse(response);
-        });
-
-        ipc.send("invokeAction", nome, sobrenome, email, senha);
-    }
-
-    
-}

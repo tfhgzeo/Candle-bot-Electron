@@ -1,16 +1,23 @@
-function cadastra(db, nome, sobrenome, email, senha) {
-    let { encrypt } = require('./teste')
+require("dotenv").config();
 
-    let senha_cryp = encrypt(senha);
+function cadastra(uid, nome, sobrenome, email) {
+    let url =
+        "http://" +
+        process.env.API_HOST +
+        ":" +
+        process.env.API_PORT +
+        "/cadastra?email=" +
+        email +
+        "&nome=" +
+        nome +
+        "&Sobrenome=" +
+        sobrenome +
+        "&uid=" +
+        uid;
 
-    let ref = db.collection("users").doc();
-
-    ref.set({
-        nome: nome,
-        sobrenome: sobrenome,
-        email: email,
-        senha: senha_cryp,
-    });
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", url);
+    xhttp.send();
 }
 
 // function criptografar(senha) {

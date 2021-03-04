@@ -3,16 +3,19 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Login</title>
-  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+  <title>Candle-Bot Trader V4M</title>
+  <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-auth.js"></script>
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" /> -->
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link rel="stylesheet" href="./css/index.css" />
-
+  <script src="./js/inicializeApp.js"></script>
+  <script src="./js/firebaseauth.js"></script>
 </head>
 
-<body>
+<body">
 
   <div class="login-box">
 
@@ -63,13 +66,13 @@
 
           <div class="email-div">
             <input type="email" name="email" id="cadastro-email" placeholder="Endereço de Email *">
-              <span id="cadastro-email-span"></span>
-            </div>
+            <span id="cadastro-email-span"></span>
+          </div>
 
           <div class="senha-div">
             <input type="password" name="senha" id="cadastro-senha" placeholder="Digite sua Senha *">
-              <span id="cadastro-senha-span"></span>
-            </div>
+            <span id="cadastro-senha-span"></span>
+          </div>
 
           <button type="submit" id="btn-cadastro">CADASTRAR</button>
 
@@ -79,7 +82,11 @@
     </div>
   </div>
 
+  <div class="load">
+    <div class="c-loader"></div>
+  </div>
+
   <script src="./js/index.js"></script>
-</body>
+  </body>
 
 </html>

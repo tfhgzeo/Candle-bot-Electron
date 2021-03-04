@@ -3,49 +3,177 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" /> -->
+
+    <title>Candle-Bot Trader V4M</title>
+
+    <!-- BootStrap -->
+
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script> -->
+
+    <!-- BootStrap -->
+
+
+    <!-- Firebase -->
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-firestore.js"></script>
+
+    <script src="./js/inicializeApp.js"></script>
+    <script src="./js/firebaseauth.js"></script>
+
+    <!-- Firebase -->
+
+
+    <!-- SweetAlert -->
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- SweetAlert -->
+
     <link rel="stylesheet" href="./css/home.css" />
-    <title>Home Page</title>
 </head>
 
-<body>
+<body onload="load()">
     <div class="container">
         <div class="left">
-            <div class="menu">
-                <i class="fas fa-bars menuIcon"></i>
+            <div class="avatar">
+                <div class="avatarIcon">
+                    <img src="./img/avatarIcon.png" alt="Avatar" id="avatarImg" width="60" height="60" />
+                    <div class="dropdown-content">
+                        <a href="#" id="config-btn">Configurações</a>
+                        <a href="#" id="Sair" onclick="sair()">Sair</a>
+                    </div>
+                </div>
             </div>
 
             <div class="home">
-                <i class="fas fa-home homeIcon"></i>
+                <i class="fas fa-robot homeIcon"></i>
+                
             </div>
 
             <div class="history">
                 <i class="fas fa-history historyIcon"></i>
             </div>
-            
+
             <div class="grafico">
                 <i class="fas fa-chart-line graficoIcon"></i>
             </div>
 
-            <div class="empty"></div>
-            <div class="empty"></div>
-
-            <div class="config">
-                <i class="fas fa-cog configIcon"></i>
-            </div>
         </div>
 
         <div class="right">
-            <div class="home">
-                
+
+            <div class="home-view">
+                <div class="top">
+                    <div class="sinais">
+                        <h1>Lista de Sinais</h1>
+                        <textarea name="lista-de-sinais" id="lista-de-sinais"
+                            placeholder="01:27,EURGBP,PUT          01:32,EURGBP,PUT          01:37,EURAUD,PUT          01:37,EURGBP,PUT          12:45,CADJPY,CALL          14:55,GBPJPY,CALL          15:55,EURGBP,PUT          15:55,USDJPY,PUT"></textarea>
+                    </div>
+
+                    <div class="bot">
+                        <h1>Configurações para o Bot</h1>
+                        <select name="velas" id="velas">
+                            <option value="opcoes">Tempo da Vela</option>
+                            <option value="1">1 Minuto</option>
+                            <option value="5">5 Minutos</option>
+                            <option value="15">15 Minutos</option>
+                        </select>
+
+                        <select name="martingale" id="martingale">
+                            <option value="opcoes">Martingale</option>
+                            <option value="1">1 Martingale</option>
+                            <option value="5">5 Martingale</option>
+                            <option value="15">15 Martingale</option>
+                        </select>
+
+                        <input type="number" name="stopWin" id="stopWin" maxlength="20" placeholder="Stop Win">
+
+                        <input type="number" name="stopLoss" id="stopLoss" maxlength="20" placeholder="Stop Loss">
+
+                        <input type="number" name="valor" id="valor" maxlength="20" placeholder="Valora de Entrada">
+
+                        <button type="submit" id="inicia">INICIAR</button>
+
+                    </div>
+
+                </div>
+
+                <div class="botton">
+                    <div class="listaArea">
+                        <table id="lista">
+
+                            <thead>
+                                <tr>
+                                    <th>Moeda</th>
+                                    <th>Horario</th>
+                                    <th>Entrada</th>
+                                    <th>Win/Loss</th>
+                                    <th>Ganhos</th>
+                                </tr>
+                            </thead>
+                            <tbody id="listaCorpo"></tbody>
+                        </table>
+                    </div>
+
+                </div>
             </div>
+
+            <div class="history-view">
+                    <h1 style="color: black">Em Construção</h1>
+            </div>
+
+            <div class="graphics-view">
+                    <h1 style="color: black">Em Construção</h1>
+            </div>
+
+            <div class="config-view">
+
+                <div class="box">
+
+                    <div class="content">
+
+                        <div class="email">
+                            <label>Email</label><br>
+                            <input type="email" name="email" id="config-email" value="" disabled>
+                        </div>
+
+                        <div class="emailIqOption">
+                            <label>Email da IqOption</label><br>
+                            <input type="email" name="email" id="config-email-IqOption" value="" disabled>
+                        </div>
+
+                        <div class="nome">
+                            <label>Nome</label><br>
+                            <input type="text" name="nome" id="config-nome" value="" disabled>
+                        </div>
+
+                        <div class="sobrenome">
+                            <label>sobrenome</label><br>
+                            <input type="text" name="sobrenome" id="config-sobrenome" value="" disabled>
+                        </div>
+
+                        <button class="btnUpdate">Atualizar Informações</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
     </div>
-    
 
+    <div class="load">
+        <div class="c-loader"></div>
+    </div>
+
+    <script src="./js/home.js"></script>
     <script src="https://kit.fontawesome.com/26defb4e11.js" crossorigin="anonymous"></script>
 </body>
 

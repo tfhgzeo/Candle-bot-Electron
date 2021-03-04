@@ -15,6 +15,7 @@ body {
 }
 
 .login-box {
+    display: none;
     background-color: rgb(36, 50, 61);
     height: 500px;
     width: 450px;
@@ -252,6 +253,7 @@ input::placeholder {
     border: none;
     box-shadow: 0 0 0.2em black;
 }
+
 button {
     outline: none;
     cursor: pointer;
@@ -262,4 +264,30 @@ span {
     display: none;
     color: red;
     font-size: 12px;
+}
+
+.load {
+    display: block;
+    position: relative;
+    height: 600px;
+    width: 800px;
+    align-items: center;
+}
+
+.c-loader {
+    position: relative;
+    animation: is-rotating 1s infinite;
+    border: 6px solid #e5e5e5;
+    border-radius: 50%;
+    border-top-color: rgb(26, 177, 136);
+    height: 50px;
+    width: 50px;
+    left: 50%;
+    top: 40%;
+}
+
+@keyframes is-rotating {
+    to {
+        transform: rotate(1turn);
+    }
 }
